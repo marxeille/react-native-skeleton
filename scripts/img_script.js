@@ -15,7 +15,7 @@ const imageFileNames = () => {
 const generate = () => {
   let properties = imageFileNames()
     .map((name) => {
-      return `${name.replace(/-/g, '_')}: require('./resources/${name}.png')`;
+      return `${name.replace(/-/g, '_')}: require('./${name}.png')`;
     })
     .join(',\n  ');
   const string = `const images = {
