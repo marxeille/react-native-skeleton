@@ -1,7 +1,7 @@
 import apisauce from 'apisauce';
 import TokenManagement from '../utils/TokenManager';
 
-const ENDPOINT = '';
+const ENDPOINT = 'http://18.157.51.85:8082';
 
 export const API = apisauce.create({
   baseURL: ENDPOINT,
