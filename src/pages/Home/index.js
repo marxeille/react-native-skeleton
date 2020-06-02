@@ -47,16 +47,21 @@ const HomeScreen = (props) => {
   // if (homeProperty.id) {
   return (
     <View
-      // onPress={() => dispatch({ type: 'user/login', username: 'name', password: 'pass' })}
-      style={{ flex: 1, backgroundColor: 'red' }}>
-      <Text style={{ color: 'yellow', height: 100 }}>Login</Text>
+    // onPress={() => dispatch({ type: 'user/login', username: 'name', password: 'pass' })}
+    // style={{ flex: 1, backgroundColor: 'red' }}
+    >
+      <Text
+      // style={{ color: 'yellow', height: 100 }}
+      >
+        Login
+      </Text>
       <TextInput
-        style={{ width: 100, height: 50 }}
+        // style={{ width: 100, height: 50 }}
         onChangeText={(value) => setValue('username', value)}
         placeholder="name"
       />
       <TextInput
-        style={{ width: 100, height: 50 }}
+        // style={{ width: 100, height: 50 }}
         onChangeText={(value) => setValue('password', value)}
         placeholder="pass"
       />
