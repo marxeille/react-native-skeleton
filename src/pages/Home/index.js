@@ -31,6 +31,10 @@ const HomeScreen = wrap(() => {
     return item;
   }, []);
 
+  const onSubmit = ({ username, password }) => {
+    console.log(username, password);
+  };
+
   // if (homeProperty.id) {
   return (
     <View cls="flx-i bg-red">
