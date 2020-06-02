@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
 import useService from '../../hooks/useService';
 import { getHomeDetail, updateHomeDetail, getListHome } from './services';
-import { View, Alert } from 'react-native';
+import { View, Alert, TouchableOpacity } from 'react-native';
 import Text from '../../components/Text';
 import FlatListService from '../../components/FlatListService';
 import { wrap } from '../../themes';
@@ -34,6 +34,18 @@ const HomeScreen = wrap(() => {
   // if (homeProperty.id) {
   return (
     <View cls="flx-i bg-red">
+      <TouchableOpacity
+        onPress={() => dispatch({ type: 'user/login', username: 'name', password: 'pass' })}
+        style={{ flex: 1, backgroundColor: 'red' }}>
+        <Text style={{ color: 'yellow', height: 100 }}>Login</Text>
+        {/* <FlatListService
+        style={{ flex: 1, backgroundColor: 'blue' }}
+        service={getListHome}
+        params={{ name: 'name' }}
+        renderItem={renderItem}
+        keyExtractor={keyExtractor}
+      /> */}
+      </TouchableOpacity>
       <FlatListService
         style={{ flex: 1 }}
         service={getListHome}
