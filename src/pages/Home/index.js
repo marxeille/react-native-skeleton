@@ -1,11 +1,17 @@
-import React, { useCallback } from 'react';
-import useService from '../../hooks/useService';
-import { getHomeDetail, updateHomeDetail, getListHome } from './services';
-import { View, Alert } from 'react-native';
+import React from 'react'; // useCallback
+// import useService from '../../hooks/useService';
+// import { getHomeDetail, updateHomeDetail, getListHome } from './services';
+import {
+  // View,
+  TouchableOpacity,
+} from 'react-native';
 import Text from '../../components/Text';
-import FlatListService from '../../components/FlatListService';
+// import FlatListService from '../../components/FlatListService';
+import { connect } from 'react-redux';
 
-const HomeScreen = () => {
+const HomeScreen = (props) => {
+  const { dispatch } = props;
+  // console.log('props', user);
   // const [loading, homeProperty] = useService(getHomeDetail, { id: '3' });
 
   // const onSubmit = useCallback(async () => {
@@ -20,30 +26,33 @@ const HomeScreen = () => {
   //   }
   // }, []);
 
-  const renderItem = useCallback(({ item }) => {
-    console.log('item', item);
-    return <Text style={{ color: 'yellow', height: 100 }}>{item}</Text>;
-  }, []);
+  // const renderItem = useCallback(({ item }) => {
+  //   console.log('item', item);
+  //   return <Text style={{ color: 'yellow', height: 100 }}>{item}</Text>;
+  // }, []);
 
-  const keyExtractor = useCallback((item) => {
-    // console.log('item', item);
-    return item;
-  }, []);
+  // const keyExtractor = useCallback((item) => {
+  //   // console.log('item', item);
+  //   return item;
+  // }, []);
 
   // if (homeProperty.id) {
   return (
-    <View style={{ flex: 1, backgroundColor: 'red' }}>
-      <FlatListService
+    <TouchableOpacity
+      onPress={() => dispatch({ type: 'user/login', username: 'name', password: 'pass' })}
+      style={{ flex: 1, backgroundColor: 'red' }}>
+      <Text style={{ color: 'yellow', height: 100 }}>Login</Text>
+      {/* <FlatListService
         style={{ flex: 1, backgroundColor: 'blue' }}
         service={getListHome}
         params={{ name: 'name' }}
         renderItem={renderItem}
         keyExtractor={keyExtractor}
-      />
-    </View>
+      /> */}
+    </TouchableOpacity>
   );
   // }
   // return null;
 };
 
-export default HomeScreen;
+export default connect((state) => ({ user: state.user }))(HomeScreen);
