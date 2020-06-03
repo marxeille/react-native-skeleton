@@ -7,5 +7,6 @@ module.exports = {
     'no-dupe-keys': 'error',
     'no-unused-vars': 'error',
     'react/jsx-no-duplicate-props': 'error',
+    'react-native/no-inline-styles': 'error',
   },
 };
