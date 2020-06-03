@@ -1,22 +1,18 @@
 import 'react-native-gesture-handler';
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import HomeScreen from './src/pages/Home';
 import AsyncStorage from '@react-native-community/async-storage';
 
 import dva from './src/utils/dva';
 import { persistStore, persistReducer } from 'redux-persist';
 import user from './src/models/user';
-
-const Stack = createStackNavigator();
+import onboarding from './src/models/onboarding';
+import StackNavigator from './src/routes';
 
 const App = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Home" component={HomeScreen} />
-      </Stack.Navigator>
+      <StackNavigator />
     </NavigationContainer>
   );
 };
@@ -25,7 +21,7 @@ const persistConfig = {
   timeout: 1000, // you can define your time. But is required.
   key: '@EF24',
   AsyncStorage,
-  whitelist: ['user'],
+  whitelist: ['user', 'onboarding'],
 };
 
 const persistEnhancer = () => (createStore) => (reducer, initialState, enhancer) => {
@@ -39,7 +35,7 @@ const persistEnhancer = () => (createStore) => (reducer, initialState, enhancer)
 
 const app = dva({
   initialState: {},
-  models: [user],
+  models: [user, onboarding],
   config: {
     extraEnhancers: [persistEnhancer()],
   },

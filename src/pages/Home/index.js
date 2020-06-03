@@ -6,6 +6,7 @@ import Text from '../../components/Text';
 // import FlatListService from '../../components/FlatListService';
 import { connect } from 'react-redux';
 import { useForm } from 'react-hook-form';
+import Background from '../../components/Background';
 
 const HomeScreen = (props) => {
   // const { dispatch } = props;
@@ -73,6 +74,7 @@ const HomeScreen = (props) => {
         keyExtractor={keyExtractor}
       /> */}
       <Button title={'Login'} onPress={handleSubmit(onSubmit)} />
+      <Background />
     </View>
   );
   // }
